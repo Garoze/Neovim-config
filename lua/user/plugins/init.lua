@@ -6,15 +6,20 @@ if not present then
 end
 
 return packer.setup(function(use) 
+  -- Packer stuff
   use {'wbthomason/packer.nvim'}
   use {'nvim-lua/popup.nvim'}
   use {'nvim-lua/plenary.nvim'}
 
+  -- Colorscheme
   use {
     'monsonjeremy/onedark.nvim', 
-    config = function() require('onedark').setup() end
+    config = function() 
+      require('user.plugins.config.onedark')
+    end
   }
   
+  -- Lualine
   use {'kyazdani42/nvim-web-devicons'}
   use {
     'nvim-lualine/lualine.nvim',
@@ -23,4 +28,19 @@ return packer.setup(function(use)
       require('user.plugins.config.lualine')
     end
   }
+
+  -- Bufferline
+  use {
+    'akinsho/bufferline.nvim', tag = "v2.*", 
+    requires = 'kyazdani42/nvim-web-devicons',
+    config = function() 
+      require('user.plugins.config.bufferline')
+    end
+  }
+
+  if PACKER_BOOTSTRAP then
+    require("packer").sync()
+  end
 end)
+
+

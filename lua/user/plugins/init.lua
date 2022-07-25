@@ -42,5 +42,3 @@ return packer.setup(function(use)
     require("packer").sync()
   end
 end)
-
-

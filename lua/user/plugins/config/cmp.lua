@@ -88,9 +88,8 @@ local options = {
     format = function(entry, vim_item)
       -- Kind icons
       vim_item.kind = string.format("%s", M.kind_icons[vim_item.kind])
-      -- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
+      --vim_item.kind = string.format('%s %s', M.kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
       vim_item.menu = ({
-        luasnip = "[Snippet]",
         buffer = "[Buffer]",
         path = "[Path]",
       })[entry.source.name]
@@ -111,7 +110,7 @@ local options = {
     },
   },
   experimental = {
-    ghost_text = false,
+    ghost_text = true,
     native_menu = false,
   },
 }

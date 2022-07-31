@@ -2,7 +2,7 @@ vim.cmd [[packadd packer.nvim]]
 
 local present, packer = pcall(require, 'core.packer')
 if not present then
-  return print('[core.packer] - Not found')
+  return 
 end
 
 return packer.setup(function(use) 
@@ -61,7 +61,14 @@ return packer.setup(function(use)
       require('user.plugins.config.alpha')
     end
   }
-  
+
+  -- Telescope
+  use {
+  'nvim-telescope/telescope.nvim', tag = '0.1.0',
+    requires = { 'nvim-lua/plenary.nvim' }
+  }
+  use {'nvim-telescope/telescope-media-files.nvim'}
+
   if PACKER_BOOTSTRAP then
     require("packer").sync()
   end

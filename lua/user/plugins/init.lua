@@ -52,6 +52,15 @@ return packer.setup(function(use)
   use {'hrsh7th/cmp-buffer'}
   use {'hrsh7th/cmp-cmdline'}
   use {'hrsh7th/cmp-nvim-lsp'}
+
+  -- Alpha (dashboard)
+  use {
+    'goolord/alpha-nvim',
+    requires = { 'kyazdani42/nvim-web-devicons' },
+    config = function ()
+      require('user.plugins.config.alpha')
+    end
+  }
   
   if PACKER_BOOTSTRAP then
     require("packer").sync()
